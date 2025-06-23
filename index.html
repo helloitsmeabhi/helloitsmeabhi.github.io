@@ -624,29 +624,35 @@
         // Start the typing effect
         document.addEventListener('DOMContentLoaded', type);
     </script>
-    <script>
+<script>
   const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwi02pd1r3LPJWE6ARfjNtYa-2Txg8tJg36bpOQBWS8IM7pm8dovMkUwyy3SmajHV09bw/exec";
 
   function logEvent(eventType, extra = '') {
     fetch(LOG_ENDPOINT, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         page: window.location.pathname,
         event: eventType,
         extra: extra,
         referrer: document.referrer || "direct"
-      }),
-      headers: {
-        "Content-Type": "application/json"
-      }
+      })
     });
   }
 
-  // Log page visit
+  // Log on page load
   window.addEventListener("DOMContentLoaded", () => {
     logEvent("page_visit");
   });
+
+  // Track clicks
+  document.querySelectorAll("a.nav-link, .btn, .social-links a").forEach(el => {
+    el.addEventListener("click", () => {
+      logEvent("click", el.href || el.textContent.trim());
+    });
+  });
 </script>
+
 
 </body>
 
