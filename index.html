@@ -261,6 +261,15 @@
         }
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MDD3XCCTHZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MDD3XCCTHZ');
+</script>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgba(0, 0, 255, 0.215);backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
         <div class="container">
@@ -624,34 +633,7 @@
         // Start the typing effect
         document.addEventListener('DOMContentLoaded', type);
     </script>
-<script>
-  const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwi02pd1r3LPJWE6ARfjNtYa-2Txg8tJg36bpOQBWS8IM7pm8dovMkUwyy3SmajHV09bw/exec";
 
-  function logEvent(eventType, extra = '') {
-    fetch(LOG_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        page: window.location.pathname,
-        event: eventType,
-        extra: extra,
-        referrer: document.referrer || "direct"
-      })
-    });
-  }
-
-  // Log on page load
-  window.addEventListener("DOMContentLoaded", () => {
-    logEvent("page_visit");
-  });
-
-  // Track clicks
-  document.querySelectorAll("a.nav-link, .btn, .social-links a").forEach(el => {
-    el.addEventListener("click", () => {
-      logEvent("click", el.href || el.textContent.trim());
-    });
-  });
-</script>
 
 
 </body>
