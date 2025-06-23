@@ -624,8 +624,7 @@
         // Start the typing effect
         document.addEventListener('DOMContentLoaded', type);
     </script>
-</body>
-<script>
+    <script>
   const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycbwi02pd1r3LPJWE6ARfjNtYa-2Txg8tJg36bpOQBWS8IM7pm8dovMkUwyy3SmajHV09bw/exec";
 
   function logEvent(eventType, extra = '') {
@@ -634,13 +633,26 @@
       body: JSON.stringify({
         page: window.location.pathname,
         event: eventType,
-        extra: extra
+        extra: extra,
+        referrer: document.referrer || "direct"
       }),
       headers: {
         "Content-Type": "application/json"
       }
     });
   }
+
+  // Log page visit
+  window.addEventListener("DOMContentLoaded", () => {
+    logEvent("page_visit");
+  });
+</script>
+
+</body>
+
+
+<script>
+
 
   // Log page visit
   window.addEventListener("DOMContentLoaded", () => {
