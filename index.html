@@ -639,27 +639,4 @@
 </body>
 
 
-<script>
-
-
-  // Log page visit
-  window.addEventListener("DOMContentLoaded", () => {
-    logEvent("page_visit");
-  });
-
-  // Track navbar clicks
-  document.querySelectorAll("a.nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-      logEvent("nav_click", link.getAttribute("href"));
-    });
-  });
-
-  // Track social and button clicks
-  document.querySelectorAll(".btn, .social-links a").forEach(link => {
-    link.addEventListener("click", () => {
-      logEvent("click", link.textContent.trim() || link.href);
-    });
-  });
-</script>
-
 </html>
