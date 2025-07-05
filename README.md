@@ -11,7 +11,7 @@
 ### 💫 About Me
 - 🔭 Currently working on: Desktop App for Dev Workflows
 - 📚 Learning: Django , System Architecture, LLM Engineering
-- ❤️ Passionate about: Automation, Japanese Design, Custom PC Building
+- ❤️ Passionate about: Automation and Custom PC Building
 - 👥 Looking for: Collaborators on Innovative Dev Tools
 - 🌟 Motto: Taking Small Steps and Being Patient
 
